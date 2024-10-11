@@ -1,8 +1,4 @@
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/',  function(req, res, next) {
+const index = (req, res) => {
     const berita = [
         {
             judul: 'Berita 1',
@@ -14,6 +10,14 @@ router.get('/',  function(req, res, next) {
         }
     ]
     res.render('index', {title: 'Halaman Home', berita, layout: "main"});
-});
+}
 
-module.exports = router;
+const about = (req, res) => {
+    res.render('about', {title: "Halaman About", layout: "main"});
+}
+
+const contact = (req, res) => {
+    res.render('contact', {title: "Halaman Contact", layout: "main"});
+}
+
+module.exports = {index, about, contact};

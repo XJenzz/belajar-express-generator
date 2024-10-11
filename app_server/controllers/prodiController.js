@@ -1,8 +1,4 @@
-var express = require('express');
-const { route } = require('.');
-var router = express.Router();
-
-router.get('/', (req, res) => {
+const prodi = (req, res) => {
     const prodi = [
         {
             nama_prodi: 'Sistem Informasi',
@@ -36,6 +32,6 @@ router.get('/', (req, res) => {
         },
     ]
     res.render('prodi',{title: 'Halaman Prodi', prodi, layout: "main"});
-})
+}
 
-module.exports = router;
+module.exports = {prodi};
