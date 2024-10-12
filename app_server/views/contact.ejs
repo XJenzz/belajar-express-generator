@@ -1,22 +1,89 @@
 <h1>Contact Us</h1>
 <p>Ini halaman contact us</p>
 <div class="row">
-    <div class="col">
-        <div class="mb-3">
-            <label for="nama" class="form-label">Nama:</label>
-            <input type="text" class="form-control" id="nama" aria-describedby="basic-addon3 basic-addon4" aria-label="nama">
-        </div>
-        <div class="mb-3">
-            <label for="telp" class="form-label">No Telp:</label>
-            <input type="text" class="form-control" id="telp" aria-describedby="basic-addon3 basic-addon4" aria-label="nama">
-        </div>
-        <div class="mb-3">
-            <label for="pesan" class="form-label">Pesan:</label>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
-        </div>
-        <button class="btn btn-primary">Kirim</button>
-    </div>
-    <div class="col">
-        <img src="./img/map.jpg" class="w-100" alt="">
-    </div>
+  <div class="col">
+    <form action="" id="contactForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          aria-describedby="basic-addon3 basic-addon4"
+          aria-label="nama"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          aria-describedby="basic-addon3 basic-addon4"
+          aria-label="nama"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="subject" class="form-label">Subject:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="subject"
+          aria-describedby="basic-addon3 basic-addon4"
+          aria-label="nama"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="message" class="form-label">Message:</label>
+        <textarea
+          class="form-control"
+          id="message"
+          aria-label="With textarea"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Kirim</button>
+    </form>
+  </div>
+  <div class="col">
+    <img src="./img/map.jpg" class="w-100" alt="" />
+  </div>
 </div>
+
+<h2>Contact List</h2>
+<ul id="contactList"></ul>
+
+<script>
+  document
+    .getElementById("contactForm")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const subject = document.getElementById("subject").value;
+      const message = document.getElementById("message").value;
+
+      let contatcs = JSON.parse(localStorage.getItem("contacts")) || [];
+
+      contatcs.push({ name, email, subject, message });
+
+      localStorage.setItem("contacts", JSON.stringify(contatcs));
+
+      document.getElementById("contactForm").reset();
+
+      displayContacts();
+    });
+
+  function displayContacts() {
+    const contactList = document.getElementById("contactList");
+    contactList.innerHTML = "";
+
+    const contacts = JSON.parse(localStorage.getItem("contacts")) || [];
+
+    contacts.forEach((contact) => {
+      contactList.innerHTML += `<li>Name: ${contact.name}, Email: ${contact.email}, Subject: ${contact.subject}, Message: ${contact.message}</li>`;
+    });
+  }
+
+  window.onload = displayContacts;
+</script>
