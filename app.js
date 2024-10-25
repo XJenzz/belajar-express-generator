@@ -7,6 +7,21 @@ const expressLayout = require("express-ejs-layouts"); // import module express-e
 // const cors = require("cors");
 const connectDB = require("./app_api/models/db");
 
+// (1) definisikan module, middleware
+
+// const mongoose = require('mongoose')
+// const bodyParser = require('body-parser')
+const cors = require('cors')
+require('dotenv/config')
+
+// middleware
+// https://stackoverflow.com/questions/24330014/bodyparser-is-deprecated-express-4
+// app.use(bodyParser.urlencoded({
+//     extended: true
+// }));
+// app.use(bodyParser.json());
+// app.use(cors())
+
 var indexRouter = require("./app_server/routes/index");
 var prodiRouter = require("./app_server/routes/prodi");
 var usersRouter = require("./app_server/routes/users");
@@ -25,7 +40,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(expressLayout); // use express-ejs-layout
-// app.use(cors); //middleware cors
+app.use(cors); //middleware cors
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
