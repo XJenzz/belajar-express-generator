@@ -11,6 +11,11 @@ const prodiSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  fakultas_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Fakultas",
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
