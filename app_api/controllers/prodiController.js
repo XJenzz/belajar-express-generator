@@ -2,7 +2,7 @@ const Prodi = require("../models/prodi");
 
 const getAllProdi = async (req, res) => {
   try {
-    const prodi = await Prodi.find().populate("fakultas_id", "nama singkatan");
+    const prodi = await Prodi.find().populate("fakultas", "nama singkatan");
 
     res.status(200).json(prodi);
   } catch (e) {
@@ -57,12 +57,11 @@ const updateProdi = async (req, res) => {
     }
 
     if (req.body.fakultas_id != null) {
-        prodi.fakultas_id = req.body.fakultas_id;
+      prodi.fakultas_id = req.body.fakultas_id;
     }
 
     const updateProdi = await prodi.save();
     res.status(200).json(updateProdi);
-    
   } catch (e) {
     res.status(400).json({ message: e.message });
   }
@@ -87,7 +86,7 @@ const getProdiByFakultas = async (req, res) => {
   try {
     const fakultasId = req.params.fakultas_id;
 
-    const prodi = await Prodi.find({fakultas_id: fakultasId});
+    const prodi = await Prodi.find({ fakultas_id: fakultasId });
 
     if (!prodi) {
       return res.status(404).json({ message: "Prodi not found" });
@@ -97,7 +96,7 @@ const getProdiByFakultas = async (req, res) => {
   } catch (e) {
     res.status(500).json({ message: e.message });
   }
-}
+};
 
 module.exports = {
   getAllProdi,

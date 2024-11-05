@@ -14,6 +14,6 @@ router.put("/:id", prodiController.updateProdi);
 
 router.delete("/:id", prodiController.deleteProdi);
 
-router.get("/:fakultas_id", prodiController.getProdiByFakultas);
+router.get("/fakultas/:fakultas_id", prodiController.getProdiByFakultas);
 
 module.exports = router;

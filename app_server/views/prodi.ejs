@@ -1,15 +1,15 @@
 <h1>Data Prodi</h1>
 <table class="table">
-    <tr>
-        <th>Nama Prodi</th>
-        <th>Fakultas</th>
-        <th>Singkatan</th>
-    </tr>
-    <% prodi.forEach(data => { %>
-        <tr>
-            <td><%= data.nama_prodi %></td>
-            <td><%= data.fakultas %></td>
-            <td><%= data.singkatan %></td>
-        </tr>
-    <% }) %>
+  <tr>
+    <th>Nama Prodi</th>
+    <th>Fakultas</th>
+    <th>Singkatan</th>
+  </tr>
+  <% prodi.forEach(data => { %>
+  <tr>
+    <td><%= data.nama %></td>
+    <td><%= data.fakultas.nama %></td>
+    <td><%= data.singkatan %></td>
+  </tr>
+  <% }) %>
 </table>
