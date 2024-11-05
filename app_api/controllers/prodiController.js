@@ -2,7 +2,7 @@ const Prodi = require("../models/prodi");
 
 const getAllProdi = async (req, res) => {
   try {
-    const prodi = await Prodi.find().populate("fakultas", "nama singkatan");
+    const prodi = await Prodi.find().populate("fakultas_id", "nama singkatan");
 
     res.status(200).json(prodi);
   } catch (e) {
