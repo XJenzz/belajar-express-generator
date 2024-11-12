@@ -41,7 +41,7 @@ const prodi = async (req, res) => {
     );
 
     const prodi = response.data;
-    console.log(prodi);
+    // console.log(prodi);
     res.render("prodi", {
       title: "Halaman Prodi",
       prodi,
