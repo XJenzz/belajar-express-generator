@@ -3,7 +3,7 @@ const axios = require("axios");
 const index = async (req, res) => {
   try {
     const response = await axios.get(
-      "https://belajar-express-generator.vercel.app/api/fakultas"
+      "https://belajar-express-generator-one.vercel.app//api/fakultas"
     );
 
     const fakultas = response.data;
