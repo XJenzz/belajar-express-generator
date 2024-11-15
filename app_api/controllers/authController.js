@@ -14,7 +14,7 @@ exports.register = async (req, res) => {
         user = new User({name, email, password, role});
         await user.save();
 
-        const playload = { userId: user.id, role: user.role };
+        const payload = { userId: user.id, role: user.role };
         const token = jwt.sign(playload, process.env.JWT_SECRET,{
             expireIn: "1h",
         });
