@@ -1,37 +1,14 @@
 <h1>Fakultas</h1>
 <h1><% title %></h1>
-
-<form action="/fakultas/store" method="POST">
-  <div class="mb-3">
-    <label for="nama" class="form-label">Nama Fakultas</label>
-    <input type="text" class="form-control" id="nama" name="nama" required />
-  </div>
-  <div class="mb-3">
-    <label for="singkatan" class="form-label">Singkatan</label>
-    <input
-      type="text"
-      class="form-control"
-      id="singkatan"
-      name="singkatan"
-      required
-    />
-  </div>
-  <button type="submit" class="btn btn-primary">Tambah Fakultas</button>
-</form>
-
 <table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Fakultas</th>
-      <th>Singkatan</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% fakultas.forEach(data => {%>
-      <tr>
-        <td><%= data.nama %></td>
-        <td><%= data.singkatan %></td>
-      </tr>
-    <%}) %>
-  </tbody>
+  <tr>
+    <th>Fakultas</th>
+    <th>Singkatan</th>
+  </tr>
+  <% fakultas.forEach(data => {%>
+  <tr>
+    <td><%= data.nama %></td>
+    <td><%= data.singkatan %></td>
+  </tr>
+  <%}) %>
 </table>

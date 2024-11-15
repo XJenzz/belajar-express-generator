@@ -8,7 +8,7 @@
   <% prodi.forEach(data => { %>
   <tr>
     <td><%= data.nama %></td>
-    <td><%= data.fakultas_id && data.fakultas_id.nama ? data.fakultas_id.nama %></td>
+    <td><%= data.fakultas_id.nama %></td>
     <td><%= data.singkatan %></td>
   </tr>
   <% }) %>
