@@ -1,17 +1,19 @@
 const express = require("express");
-
 const router = express.Router();
-
 const fakultasController = require("../controllers/fakultasController");
 
-router.get("/", fakultasController.getAllFakultas);
+const authMiddleware = require("../middleware/authMiddleware");
+const roleMiddleware = require("../middleware/roleMiddleware");
 
-router.post("/", fakultasController.createFakultas);
 
-router.get("/:id", fakultasController.getFakultasById);
+router.get("/", authMiddleware, fakultasController.getAllFakultas);
 
-router.put("/:id", fakultasController.updateFakultas);
+router.post("/", authMiddleware, roleMiddleware('admin'), fakultasController.createFakultas);
 
-router.delete("/:id", fakultasController.deleteFakultas);
+router.get("/:id", authMiddleware, fakultasController.getFakultasById);
+
+router.put("/:id", authMiddleware, roleMiddleware('admin'), fakultasController.updateFakultas);
+
+router.delete("/:id", authMiddleware, roleMiddleware('admin'), fakultasController.deleteFakultas);
 
 module.exports = router;

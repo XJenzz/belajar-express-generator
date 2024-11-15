@@ -11,8 +11,12 @@ var indexRouter = require("./app_server/routes/index");
 var usersRouter = require("./app_server/routes/users");
 var prodiRouter = require("./app_server/routes/prodi");
 var fakultasRouter = require("./app_server/routes/fakultas");
+
 const fakultasRouterApi = require("./app_api/routes/fakultas");
 const prodiRouterApi = require("./app_api/routes/prodi");
+const authRouterApi = require("./app_api/routes/auth");
+
+require("dotenv").config();
 
 var app = express();
 
@@ -35,6 +39,7 @@ app.use("/fakultas", fakultasRouter);
 
 app.use("/api/fakultas", fakultasRouterApi);
 app.use("/api/prodi", prodiRouterApi);
+app.use("/api/auth", authRouterApi);
 
 // connect to monggodb
 connectDB();
