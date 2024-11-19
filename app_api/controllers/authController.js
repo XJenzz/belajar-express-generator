@@ -2,7 +2,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-exports.reqister = async (req, res) => {
+exports.register = async (req, res) => {
   const { name, email, password, role } = req.body;
 
   try {
@@ -29,12 +29,12 @@ exports.login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = User.findOne({ email });
+    const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).send({ message: "Invalid email or password" });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).send({ message: "Invalid email or password" });
     }
@@ -43,7 +43,6 @@ exports.login = async (req, res) => {
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-
     res.json({ token });
   } catch (e) {
     res.status(500).send({ message: e.message });
