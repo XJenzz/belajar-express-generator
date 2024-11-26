@@ -1,71 +1,113 @@
 var express = require('express');
 var router = express.Router();
 
-// Import Controller
-const mainController = require('../controllers/mainController');
+// import controller
+const mainController = require('../controllers/mainController')
 
-// route
-router.get('/', mainController.index);
-router.get('/about', mainController.about);
-router.get('/contact', mainController.contact);
+router.get('/', mainController.index)
+router.get('/about', mainController.about)
+router.get('/contact', mainController.contact)
 
 /* GET home page. */
-// router.get('/',  function(req, res, next) {
-//     const berita = [
+// router.get('/', function(req, res, next) {
+//   const berita = [
 //         {
-//             judul: 'Berita 1',
-//             isi: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi dolores debitis, voluptate exercitationem voluptatum nemo saepe qui porro vitae. Molestiae accusamus, aliquam iste odit eum facere suscipit qui minus. Quasi autem velit est quia nulla.'
+//             judul:"Berita 1",
+//             isi: "Isi berita 1"
 //         },
 //         {
-//             judul: 'Berita 2',
-//             isi: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore consectetur eos illo aliquam unde beatae facilis, assumenda minus voluptatem perspiciatis! Tempora perferendis quidem magni quia sint, inventore aut! Quam molestiae perferendis eligendi, sunt nemo maiores sapiente impedit tempore eius esse.'
-//         }
-//     ]
-//     res.render('index', {title: 'Halaman Home', berita, layout: "main"});
+//             judul:"Berita 2",
+//             isi: "Isi berita 2"
+//         },
+//     ];
+//     res.render('index' , {title : 'Halaman Home', berita, layout : 'main'});
 // });
 
-// router.get('/about',  function(req, res, next) {
-//     res.render('about', {title: "Halaman About", layout: "main"});
+// // route /about
+// router.get("/about", (req, res) => {
+//     // res.send("About Us");
+//     // res.sendFile(__dirname + "/about.html");
+//     res.render('about' , {title : 'About Us', layout : 'main' });
 // })
 
-// router.get('/contact', (req, res) => {
-//     res.render('contact', {title: "Halaman Contact", layout: "main"});
+// // route /contact
+// router.get("/contact", (req,res) => {
+//     // res.send("Contact Us");
+//     // res.sendFile(__dirname + "/contact.html");
+//     res.render('Contact' , {title : 'Contact Us', layout : 'main'});
+// })
+
+// // route /mahasiswa
+// router.get("/mahasiswa", (req,res) => {
+//     res.json({
+//         "status" : "success",
+//         "message" : "Data mahasiswa",
+//         "data" : [
+//             {npm: 2226240001, nama: "ahmad"},
+//             {npm: 2226240076, nama: "ricky"},
+//             {npm: 2226240093, nama: "cengkang"}
+//         ], 
+//     })
 // });
 
-// router.get('/prodi', (req, res) => {
+// // route /dosen
+// router.get("/dosen", (req,res) => {
+//     res.json({
+//         "status" : "success",
+//         "message" : "Data Dosen",
+//         "data" : [
+//             {
+//                 Prodi: "Sistem Informasi", 
+//                 Dosen: ["Iis","Faris","Dafid"]},
+//             {
+//                 Prodi: "Informatika", 
+//                 Dosen: ["Derry","Siska","Yohannes"]
+//             }
+//         ]
+//     })
+// })
+
+// // route /prodi
+// router.get("/prodi", (req,res) => {
+
 //     const prodi = [
 //         {
-//             nama_prodi: 'Sistem Informasi',
-//             fakultas: 'FIKR',
-//             singkatan: 'SI'
+//             prodi: "Sistem Informasi",
+//             fakultas: "FIKR",
+//             singkatan: "SI"
 //         },
 //         {
-//             nama_prodi: 'Informatika',
-//             fakultas: 'FIKR',
-//             singkatan: 'IF'
+//             prodi: "Informatika",
+//             fakultas: "FIKR",
+//             singkatan: "IF"
 //         },
 //         {
-//             nama_prodi: 'Teknik Elektro',
-//             fakultas: 'FIKR',
-//             singkatan: 'TE'
+//             prodi: "Teknik Elektro",
+//             fakultas: "FIKR",
+//             singkatan: "TE"
 //         },
 //         {
-//             nama_prodi: 'Manajemen Informatika',
-//             fakultas: 'FIKR',
-//             singkatan: 'MI'
+//             prodi: "Manajemen Informatika",
+//             fakultas: "FIKR",
+//             singkatan: "MI"
 //         },
 //         {
-//             nama_prodi: 'Manajemen',
-//             fakultas: 'FEB',
-//             singkatan: 'MJ'
+//             prodi: "Manajemen",
+//             fakultas: "FEB",
+//             singkatan: "MJ"
 //         },
 //         {
-//             nama_prodi: 'Akuntansi',
-//             fakultas: 'FEB',
-//             singkatan: 'AK'
+//             prodi: "Akutansi",
+//             fakultas: " FEB",
+//             singkatan: "AK"
 //         },
+
 //     ]
-//     res.render('prodi',{title: 'Halaman Prodi', prodi, layout: "main"});
+
+//     res.render('Prodi' , {title : "Prodi", prodi, layout : 'main'});
 // })
 
+
+
 module.exports = router;
+
