@@ -14,8 +14,8 @@ router.get("/", fakultasController.getAllFakultas);
 // Mengatur rute POST untuk membuat data fakultas baru
 router.post(
   "/",
-  authMiddleware,
-  roleMiddleware("admin"),
+  // authMiddleware,
+  // roleMiddleware("admin"),
   fakultasController.createFakultas
 );
 // Mengatur rute GET untuk mendapatkan data fakultas berdasarkan ID
